@@ -278,19 +278,19 @@
                   "id": "a0f23294-9243-4eb2-84a7-4149203896d0",
                   "title": "Spoofing des Benutzers über gestohlene Zugangsdaten",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Spoofing",
                   "description": "Ein Angreifer könnte sich als legitimer Benutzer ausgeben, indem er gestohlene Zugangsdaten verwendet und anschließend versucht, den OTT-Token abzufangen oder umzuleiten, um die 2-Faktor-Authentifizierung zu umgehen.\nCAPEC-98 (Phishing)\nMITRE ATT&CK: TA0001 – Initial Access\nD: 9\nR: 8\nE: 8\nA: 9\n34/4= 8.5",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "ASVS 2.1 – Strong Authentication\nEinführung starker Multi-Faktor-Authentifizierung inkl. TOTP oder FIDO2 statt SMS/OTT.\nLogin-System ersetzt OTT per SMS durch TOTP / FIDO2\nUmsetzung:\n\nBrute-Force-Protection\nDevice-Binding\nKein Token mehr über Telco transportiert\nRisikoreduktion:\n\nSpoofing wird massiv erschwert, OTT-Abgriff unmöglich\nD: 6\nR: 3\nE: 3\nA: 5\n17\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 108,
-                  "score": ""
+                  "score": "17"
                 }
               ],
               "hasOpenThreats": true,
               "threatFrequency": {
-                "spoofing": 3,
+                "spoofing": 6,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
@@ -300,13 +300,6 @@
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null,
               "isWebApplication": null
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -426,14 +419,14 @@
                   "id": "94ca85fc-8cf8-47f8-8f37-85d9542808bd",
                   "title": "Abstreiten von durchgeführten OTT-Authentifizierungen",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Repudiation",
                   "description": "Ein Benutzer oder Angreifer könnte behaupten, eine OTT-Authentifizierung nicht durchgeführt zu haben, wenn Log-Einträge fehlen oder manipuliert werden können.\nCAPEC-233 (Session Replay / Non-Repudiation Issues)\nMITRE ATT&CK: TA0006 – Credential Access\nD: 6\nR: 5\nE: 4\nA: 6\n21/4=5.25",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "OWASP ASVS\nASVS 8.2 – Non-Repudiation & Log Integrity\n\nSignierte Audit-Logs, eindeutige Session-IDs und verifizierte Zeitstempel machen jede Aktion eindeutig nachvollziehbar. Nutzer können Handlungen nicht bestreiten\n\nUmsetzung:\nJede Authentifizierung erhält eine eindeutige signierte Audit-ID\nZeitstempel mit NTP-Synchronisation\nLogs unveränderbar archiviert\nSIEM prüft Signaturen\n\nRisikoreduktion:\nAktionen sind eindeutig zuordenbar, Nutzer können sie nicht abstreiten\nD: 3\nR: 2\nE: 2\nA: 3\n10",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 110,
-                  "score": ""
+                  "score": "10"
                 }
               ],
               "hasOpenThreats": true,
@@ -446,7 +439,7 @@
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
-                "repudiation": 2,
+                "repudiation": 4,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1371,19 +1364,19 @@
                   "id": "0a79901e-bd1f-4bf8-a070-be0d767aaa2b",
                   "title": "Offenlegung der Telefonnummer",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Information disclosure",
                   "description": "Die Telefonnummer wird an das externe Telco-System weitergeleitet. Bei unsicherer Übertragung können Angreifer diese abfangen und für gezielte Angriffe nutzen.\nCAPEC-157 (Sniffing Attacks)\nMITRE ATT&CK: TA0011 – Command and Control\nD: 7\nR: 7\nE: 6\nA: 8\n28/4=7",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "OWASP MASVS\nMASVS MSTG-NETWORK-2 – Secure Communication\n\nVerschlüsselung aller API-Requests per TLS 1.3, Einsatz von mTLS sowie API-Hardening verhindern das Abfangen oder Mitlesen sensibler Daten wie Telefonnummern oder OTT-Token\n\nUmsetzung:\nAPI-Gateway nutzt mTLS\nTelefonnummer nur verschlüsselt übertragen\nkeine Weitergabe an unnötige Services\nAPI-Key Rotation\nCertificate Pinning in App\n\nRisikoreduktion:\nSniffing oder MITM nahezu ausgeschlossen\nD: 4\nR: 2\nE: 2\nA: 4\n12",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 112,
-                  "score": ""
+                  "score": "12"
                 }
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 5,
                 "denialOfService": 0
               }
             },
@@ -1576,20 +1569,20 @@
               "threats": [
                 {
                   "id": "fc25ff25-218f-4268-b4d3-0b079772953d",
-                  "title": "Manipulation der OTT- und Login-Logs",
+                  "title": "Manipulation der OTT- und Login Daten",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Tampering",
-                  "description": "Ein Angreifer könnte Log-Einträge in der Log-Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Ein Angreifer könnte Log Einträge in der Log Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
+                  "mitigation": "MITRE D3FEND\nd3f:LogIntegrity\n\nSignierte Logs und Write-Once-Read-Many (WORM) Speicherung verhindern jede nachträgliche Manipulation von Ereignisdaten. Änderungen sind sofort erkennbar.\n\nUmsetzung:\nLogs werden mit SHA-256 signiert\nWORM-Speicher (write once, read many)\nSIEM validiert jede Log-Signatur\nKeine direkten Schreibrechte für Anwendungen\n\nRisikoreduktion:\nManipulation wird sofort erkennbar und fast unmöglich\nD: 4\nR: 2\nE: 2\nA: 3\n11",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 109,
-                  "score": ""
+                  "score": "11"
                 }
               ],
               "threatFrequency": {
-                "tampering": 2,
+                "tampering": 5,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
@@ -1843,14 +1836,14 @@
                   "id": "4d2e2ad1-7538-4814-81a1-5b10f0f84f12",
                   "title": "DoS gegen Allsecure Mobile Phone OTT Service",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Denial of service",
-                  "description": "Ein Angreifer kann den OTT-Service mit massiven Authentifizierungsanfragen überfluten, sodass echte Benutzer keinen OTT-Token mehr erhalten und nicht mehr einloggen können.\nCAPEC-125 (Flooding)\nMITRE ATT&CK: TA0040 – Impact\nD: 8\nR: 7\nE: 7\nA: 9\n31/4=7.75",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Ein Angreifer kann den OTT Service mit massiven Authentifizierungsanfragen überfluten, sodass echte Benutzer keinen OTT Token mehr erhalten und nicht mehr einloggen können.\nCAPEC-125 (Flooding)\nMITRE ATT&CK: TA0040 – Impact\nD: 8\nR: 7\nE: 7\nA: 9\n31/4=7.75",
+                  "mitigation": "MITRE D3FEND\nd3f:ServiceResilience / Rate Limiting\n\nRate-Limiting, Load-Balancing und Auto-Scaling schützen den OTT-Service vor Überlastung und verhindern erfolgreiche DoS-Angriffe\n\nUmsetzung:\nNginx/Envoy API-Gateway mit 429 Limit\nAuto-Scaling im OTT-Service\nCaptcha bei Auth-Request-Burst\nSynFlood Protection auf Firewall\n\nRisikoreduktion:\nAngreifer kann den Service nicht mehr lahmlegen → System bleibt verfügbar\nD: 4\nR: 3\nE: 3\nA: 5\n15",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 113,
-                  "score": ""
+                  "score": "15"
                 }
               ],
               "threatFrequency": {
@@ -1858,7 +1851,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 2,
+                "denialOfService": 5,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1983,16 +1976,16 @@
               "threats": [
                 {
                   "id": "50f48fb4-a204-4f84-b8d6-a0d20da63fb6",
-                  "title": "Privilegieneskalation im SIEM-System",
+                  "title": "Rechte klauen im SIEM-System",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Elevation of privilege",
-                  "description": "Ein Angreifer könnte eine Schwachstelle im SIEM oder falsche Rollenvergabe ausnutzen, um administrative Rechte zu erhalten und Alarme zu deaktivieren oder Logs zu verändern.\nCAPEC-233 (Privilege Escalation)\nMITRE ATT&CK: TA0004 – Privilege Escalation\nD: 10\nR: 6\nE: 6\nA: 8\n30/4=7.5",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Ein Angreifer könnte eine Schwachstelle im SIEM oder falsche Rollenvergabe ausnutzen, um admin Rechte zu erhalten und Alarme zu deaktivieren oder Logs zu verändern.\nCAPEC-233 (Privilege Escalation)\nMITRE ATT&CK: TA0004 – Privilege Escalation\nD: 10\nR: 6\nE: 6\nA: 8\n30/4=7.5",
+                  "mitigation": "OWASP ASVS\n ASVS 4.1 – Access Control\n\nEinführung eines strikten Rollenmodells, Zero-Trust-Policies und zusätzlicher MFA verhindert, dass Angreifer unberechtigt Adminrechte erhalten\n\nUmsetzung:\nRollenbasierte Berechtigungen\nAdmin-Konsole nur über VPN + Hardware-Key\nLeast Privilege Policy\nSIEM-Hardening + Patching\nJedes Admin-Event wird geloggt\n\nRisikoreduktion:\nPrivilege Escalation stark erschwert → Schaden deutlich geringer\nD: 5\nR: 3\nE: 3\nA: 4\n15",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 114,
-                  "score": ""
+                  "score": "15"
                 }
               ],
               "threatFrequency": {
@@ -2001,7 +1994,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 2
+                "elevationOfPrivilege": 5
               }
             }
           },
