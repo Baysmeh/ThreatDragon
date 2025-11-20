@@ -300,13 +300,6 @@
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null,
               "isWebApplication": null
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1578,22 +1571,29 @@
                   "id": "fc25ff25-218f-4268-b4d3-0b079772953d",
                   "title": "Manipulation der OTT- und Login Daten",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Tampering",
                   "description": "Ein Angreifer könnte Log Einträge in der Log Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "MITRE D3FEND\nd3f:LogIntegrity\nDigitale Signaturen / Hash-Chains für Logs + Write-Once Storage.\nUmsetzung:\nLogs werden mit SHA-256 signiert\nWORM-Speicher (write once, read many)\nSIEM validiert jede Log-Signatur\nKeine direkten Schreibrechte für Anwendungen\nRisikoreduktion:\nManipulation wird sofort erkennbar und fast unmöglich\nD: 4\nR: 2\nE: 2\nA: 3\n11",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 109,
-                  "score": ""
+                  "score": "11"
                 }
               ],
               "threatFrequency": {
-                "tampering": 3,
+                "tampering": 4,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
