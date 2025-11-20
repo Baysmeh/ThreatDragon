@@ -278,7 +278,7 @@
                   "id": "a0f23294-9243-4eb2-84a7-4149203896d0",
                   "title": "Spoofing des Benutzers über gestohlene Zugangsdaten",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Spoofing",
                   "description": "Ein Angreifer könnte sich als legitimer Benutzer ausgeben, indem er gestohlene Zugangsdaten verwendet und anschließend versucht, den OTT-Token abzufangen oder umzuleiten, um die 2-Faktor-Authentifizierung zu umgehen.\nCAPEC-98 (Phishing)\nMITRE ATT&CK: TA0001 – Initial Access\nD: 9\nR: 8\nE: 8\nA: 9\n34/4= 8.5",
                   "mitigation": "ASVS 2.1 – Strong Authentication\nEinführung starker Multi-Faktor-Authentifizierung inkl. TOTP oder FIDO2 statt SMS/OTT.\nLogin-System ersetzt OTT per SMS durch TOTP / FIDO2\nUmsetzung:\n\nBrute-Force-Protection\nDevice-Binding\nKein Token mehr über Telco transportiert\nRisikoreduktion:\n\nSpoofing wird massiv erschwert, OTT-Abgriff unmöglich\nD: 6\nR: 3\nE: 3\nA: 5\n17\n",
@@ -290,7 +290,7 @@
               ],
               "hasOpenThreats": true,
               "threatFrequency": {
-                "spoofing": 6,
+                "spoofing": 7,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
@@ -419,7 +419,7 @@
                   "id": "94ca85fc-8cf8-47f8-8f37-85d9542808bd",
                   "title": "Abstreiten von durchgeführten OTT-Authentifizierungen",
                   "status": "Open",
-                  "severity": "Low",
+                  "severity": "Medium",
                   "type": "Repudiation",
                   "description": "Ein Benutzer oder Angreifer könnte behaupten, eine OTT-Authentifizierung nicht durchgeführt zu haben, wenn Log-Einträge fehlen oder manipuliert werden können.\nCAPEC-233 (Session Replay / Non-Repudiation Issues)\nMITRE ATT&CK: TA0006 – Credential Access\nD: 6\nR: 5\nE: 4\nA: 6\n21/4=5.25",
                   "mitigation": "OWASP ASVS\nASVS 8.2 – Non-Repudiation & Log Integrity\n\nSignierte Audit-Logs, eindeutige Session-IDs und verifizierte Zeitstempel machen jede Aktion eindeutig nachvollziehbar. Nutzer können Handlungen nicht bestreiten\n\nUmsetzung:\nJede Authentifizierung erhält eine eindeutige signierte Audit-ID\nZeitstempel mit NTP-Synchronisation\nLogs unveränderbar archiviert\nSIEM prüft Signaturen\n\nRisikoreduktion:\nAktionen sind eindeutig zuordenbar, Nutzer können sie nicht abstreiten\nD: 3\nR: 2\nE: 2\nA: 3\n10",
@@ -439,7 +439,7 @@
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
-                "repudiation": 4,
+                "repudiation": 5,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1200,7 +1200,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Telefonnummer, OTT",
+              "name": "Antwort",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1218,7 +1218,7 @@
               }
             },
             "labels": [
-              "Telefonnummer, OTT"
+              "Antwort"
             ],
             "id": "10939d18-1017-4b86-841d-9f5394f83f90",
             "source": {
@@ -1236,7 +1236,17 @@
                 "x": 750,
                 "y": 65
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1571,7 +1581,7 @@
                   "id": "fc25ff25-218f-4268-b4d3-0b079772953d",
                   "title": "Manipulation der OTT- und Login Daten",
                   "status": "Open",
-                  "severity": "Low",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "Ein Angreifer könnte Log Einträge in der Log Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
                   "mitigation": "MITRE D3FEND\nd3f:LogIntegrity\n\nSignierte Logs und Write-Once-Read-Many (WORM) Speicherung verhindern jede nachträgliche Manipulation von Ereignisdaten. Änderungen sind sofort erkennbar.\n\nUmsetzung:\nLogs werden mit SHA-256 signiert\nWORM-Speicher (write once, read many)\nSIEM validiert jede Log-Signatur\nKeine direkten Schreibrechte für Anwendungen\n\nRisikoreduktion:\nManipulation wird sofort erkennbar und fast unmöglich\nD: 4\nR: 2\nE: 2\nA: 3\n11",
@@ -1582,18 +1592,12 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 5,
+                "tampering": 6,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
-              }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
+              },
+              "storesInventory": null
             }
           },
           {
