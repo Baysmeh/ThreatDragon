@@ -280,7 +280,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Spoofing",
-                  "description": "Ein Angreifer könnte sich als legitimer Benutzer ausgeben, indem er gestohlene Zugangsdaten verwendet und anschließend versucht, den OTT-Token abzufangen oder umzuleiten, um die 2-Faktor-Authentifizierung zu umgehen.\nCAPEC-98 (Phishing)\nMITRE ATT&CK: TA0001 – Initial Access",
+                  "description": "Ein Angreifer könnte sich als legitimer Benutzer ausgeben, indem er gestohlene Zugangsdaten verwendet und anschließend versucht, den OTT-Token abzufangen oder umzuleiten, um die 2-Faktor-Authentifizierung zu umgehen.\nCAPEC-98 (Phishing)\nMITRE ATT&CK: TA0001 – Initial Access\nD: 9\nR: 8\nE: 8\nA: 9\n34/4= 8.5",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -290,13 +290,16 @@
               ],
               "hasOpenThreats": true,
               "threatFrequency": {
-                "spoofing": 2,
+                "spoofing": 3,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
-              }
+              },
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null,
+              "isWebApplication": null
             }
           },
           {
@@ -418,7 +421,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Ein Benutzer oder Angreifer könnte behaupten, eine OTT-Authentifizierung nicht durchgeführt zu haben, wenn Log-Einträge fehlen oder manipuliert werden können.\nCAPEC-233 (Session Replay / Non-Repudiation Issues)\nMITRE ATT&CK: TA0006 – Credential Access",
+                  "description": "Ein Benutzer oder Angreifer könnte behaupten, eine OTT-Authentifizierung nicht durchgeführt zu haben, wenn Log-Einträge fehlen oder manipuliert werden können.\nCAPEC-233 (Session Replay / Non-Repudiation Issues)\nMITRE ATT&CK: TA0006 – Credential Access\nD: 6\nR: 5\nE: 4\nA: 6\n21/4=5.25",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -436,11 +439,12 @@
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
-              }
+              },
+              "isWebApplication": null
             }
           },
           {
@@ -1413,7 +1417,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Information disclosure",
-                  "description": "Die Telefonnummer wird an das externe Telco-System weitergeleitet. Bei unsicherer Übertragung können Angreifer diese abfangen und für gezielte Angriffe nutzen.\nCAPEC-157 (Sniffing Attacks)\nMITRE ATT&CK: TA0011 – Command and Control",
+                  "description": "Die Telefonnummer wird an das externe Telco-System weitergeleitet. Bei unsicherer Übertragung können Angreifer diese abfangen und für gezielte Angriffe nutzen.\nCAPEC-157 (Sniffing Attacks)\nMITRE ATT&CK: TA0011 – Command and Control\nD: 7\nR: 7\nE: 6\nA: 8\n28/4=7",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1423,7 +1427,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -1567,9 +1571,9 @@
                   "id": "fc25ff25-218f-4268-b4d3-0b079772953d",
                   "title": "Manipulation der OTT- und Login-Logs",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Ein Angreifer könnte Log-Einträge in der Log-Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion",
+                  "description": "Ein Angreifer könnte Log-Einträge in der Log-Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1578,7 +1582,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
@@ -1834,7 +1838,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Denial of service",
-                  "description": "Ein Angreifer kann den OTT-Service mit massiven Authentifizierungsanfragen überfluten, sodass echte Benutzer keinen OTT-Token mehr erhalten und nicht mehr einloggen können.",
+                  "description": "Ein Angreifer kann den OTT-Service mit massiven Authentifizierungsanfragen überfluten, sodass echte Benutzer keinen OTT-Token mehr erhalten und nicht mehr einloggen können.\nCAPEC-125 (Flooding)\nMITRE ATT&CK: TA0040 – Impact\nD: 8\nR: 7\nE: 7\nA: 9\n31/4=7.75",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1847,7 +1851,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1974,9 +1978,9 @@
                   "id": "50f48fb4-a204-4f84-b8d6-a0d20da63fb6",
                   "title": "Privilegieneskalation im SIEM-System",
                   "status": "Open",
-                  "severity": "Critical",
+                  "severity": "High",
                   "type": "Elevation of privilege",
-                  "description": "Ein Angreifer könnte eine Schwachstelle im SIEM oder falsche Rollenvergabe ausnutzen, um administrative Rechte zu erhalten und Alarme zu deaktivieren oder Logs zu verändern.\nCAPEC-233 (Privilege Escalation)\nMITRE ATT&CK: TA0004 – Privilege Escalation",
+                  "description": "Ein Angreifer könnte eine Schwachstelle im SIEM oder falsche Rollenvergabe ausnutzen, um administrative Rechte zu erhalten und Alarme zu deaktivieren oder Logs zu verändern.\nCAPEC-233 (Privilege Escalation)\nMITRE ATT&CK: TA0004 – Privilege Escalation\nD: 10\nR: 6\nE: 6\nA: 8\n30/4=7.5",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1990,8 +1994,15 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
