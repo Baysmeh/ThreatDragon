@@ -175,8 +175,8 @@
                 "text": "Login System -\nWebapp +\nMobile App"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -273,8 +273,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false
+              "threats": [
+                {
+                  "id": "a0f23294-9243-4eb2-84a7-4149203896d0",
+                  "title": "Spoofing des Benutzers über gestohlene Zugangsdaten",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Ein Angreifer könnte sich als legitimer Benutzer ausgeben, indem er gestohlene Zugangsdaten verwendet und anschließend versucht, den OTT-Token abzufangen oder umzuleiten, um die 2-Faktor-Authentifizierung zu umgehen.\nCAPEC-98 (Phishing)\nMITRE ATT&CK: TA0001 – Initial Access\nD: 9\nR: 8\nE: 8\nA: 9\n34/4= 8.5",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 108,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true,
+              "threatFrequency": {
+                "spoofing": 3,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              },
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null,
+              "isWebApplication": null
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -291,8 +323,8 @@
                 "text": "2-Faktor-Authe\nntifizierungsdi\nenst"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -389,12 +421,37 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false,
+              "threats": [
+                {
+                  "id": "94ca85fc-8cf8-47f8-8f37-85d9542808bd",
+                  "title": "Abstreiten von durchgeführten OTT-Authentifizierungen",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Ein Benutzer oder Angreifer könnte behaupten, eine OTT-Authentifizierung nicht durchgeführt zu haben, wenn Log-Einträge fehlen oder manipuliert werden können.\nCAPEC-233 (Session Replay / Non-Repudiation Issues)\nMITRE ATT&CK: TA0006 – Credential Access\nD: 6\nR: 5\nE: 4\nA: 6\n21/4=5.25",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
-              "isPublicNetwork": false
+              "isPublicNetwork": false,
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              },
+              "isWebApplication": null
             }
           },
           {
@@ -1150,65 +1207,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Antwort",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "2. Weiterleitung\nTelefonnummer"
-                  }
-                },
-                "position": {
-                  "distance": 0.6100815863762545,
-                  "offset": -21.27058463543483
-                }
-              }
-            ],
-            "id": "8ecaba74-0e1f-4520-834c-ddec29220d7e",
-            "source": {
-              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
-            },
-            "target": {
-              "cell": "ebc88767-2bed-409f-b854-efadec206ba8"
-            },
-            "vertices": [
-              {
-                "x": 760,
-                "y": -10
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Telefonnummer, OTT",
               "description": "",
               "outOfScope": false,
@@ -1219,20 +1217,15 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Antwort"
-                  }
-                },
-                "position": {
-                  "distance": 0.4667551402818713,
-                  "offset": -12.917577739081434
-                }
-              }
+              "Telefonnummer, OTT"
             ],
             "id": "10939d18-1017-4b86-841d-9f5394f83f90",
             "source": {
@@ -1244,6 +1237,10 @@
             "vertices": [
               {
                 "x": 770,
+                "y": 65
+              },
+              {
+                "x": 750,
                 "y": 65
               }
             ]
@@ -1342,6 +1339,72 @@
             "shape": "flow",
             "attrs": {
               "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Weiterleitung Telefonnummer",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "0a79901e-bd1f-4bf8-a070-be0d767aaa2b",
+                  "title": "Offenlegung der Telefonnummer",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Die Telefonnummer wird an das externe Telco-System weitergeleitet. Bei unsicherer Übertragung können Angreifer diese abfangen und für gezielte Angriffe nutzen.\nCAPEC-157 (Sniffing Attacks)\nMITRE ATT&CK: TA0011 – Command and Control\nD: 7\nR: 7\nE: 6\nA: 8\n28/4=7",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Weiterleitung Telefonnummer"
+            ],
+            "id": "53e3b72d-903b-4139-82d9-597d3e0c0ca0",
+            "source": {
+              "x": 592,
+              "y": 13
+            },
+            "target": {
+              "cell": "ebc88767-2bed-409f-b854-efadec206ba8",
+              "port": "2cd83cdb-c611-42a3-864f-319c8d0b6ddb"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
                 "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
@@ -1375,21 +1438,17 @@
             ],
             "id": "327300bc-ef06-490a-8325-66f7651770dd",
             "source": {
-              "x": 620,
-              "y": 110
+              "x": 580,
+              "y": 90
             },
             "target": {
-              "x": 720,
-              "y": 210
+              "cell": "a7ce3830-1617-4a99-9d69-81ded3cb2e0e",
+              "port": "30b075e2-826c-4171-b762-b8fa596edd4d"
             },
             "vertices": [
               {
-                "x": 640,
-                "y": 140
-              },
-              {
-                "x": 690,
-                "y": 190
+                "x": 650,
+                "y": 170
               }
             ]
           },
@@ -1407,11 +1466,13 @@
                 "text": "Log-DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1511,8 +1572,28 @@
               "storesCredentials": false,
               "isEncrypted": true,
               "isSigned": true,
-              "hasOpenThreats": false,
-              "threats": []
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "fc25ff25-218f-4268-b4d3-0b079772953d",
+                  "title": "Manipulation der OTT- und Login-Logs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Ein Angreifer könnte Log-Einträge in der Log-Datenbank manipulieren, um Authentifizierungsvorgänge zu verschleiern oder unautorisierten Zugriff zu tarnen.\nCAPEC-93 (Log Injection)\nMITRE ATT&CK: TA0005 – Defense Evasion\nD: 8\nR: 6\nE: 5\nA: 7\n26/4=6.5",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1654,8 +1735,8 @@
                 "text": "AllSecure\nMobile Phone\nOTT Service"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1752,18 +1833,40 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "4d2e2ad1-7538-4814-81a1-5b10f0f84f12",
+                  "title": "DoS gegen Allsecure Mobile Phone OTT Service",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Ein Angreifer kann den OTT-Service mit massiven Authentifizierungsanfragen überfluten, sodass echte Benutzer keinen OTT-Token mehr erhalten und nicht mehr einloggen können.\nCAPEC-125 (Flooding)\nMITRE ATT&CK: TA0040 – Impact\nD: 8\nR: 7\nE: 7\nA: 9\n31/4=7.75",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
             "position": {
-              "x": 680,
-              "y": 160
+              "x": 690,
+              "y": 150
             },
             "size": {
               "width": 60,
@@ -1774,8 +1877,8 @@
                 "text": "SIEM"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1872,12 +1975,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "50f48fb4-a204-4f84-b8d6-a0d20da63fb6",
+                  "title": "Privilegieneskalation im SIEM-System",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Ein Angreifer könnte eine Schwachstelle im SIEM oder falsche Rollenvergabe ausnutzen, um administrative Rechte zu erhalten und Alarme zu deaktivieren oder Logs zu verändern.\nCAPEC-233 (Privilege Escalation)\nMITRE ATT&CK: TA0004 – Privilege Escalation\nD: 10\nR: 6\nE: 6\nA: 8\n30/4=7.5",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 2
+              }
             }
           },
           {
