@@ -445,13 +445,6 @@
                 "elevationOfPrivilege": 0
               },
               "isWebApplication": null
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1458,6 +1451,57 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "OTT",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "OTT"
+            ],
+            "id": "a94e3d9c-e2c0-46de-92d9-53ff7d8761cc",
+            "source": {
+              "cell": "780229cb-9017-4586-a4f1-04f4e5c790e7",
+              "port": "30b075e2-826c-4171-b762-b8fa596edd4d"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa",
+              "port": "7c23808a-bea2-487d-a760-5b1aee4520ad"
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": 160
+              }
+            ]
+          },
+          {
             "position": {
               "x": 400.99999999999994,
               "y": -180
@@ -1729,7 +1773,7 @@
           },
           {
             "position": {
-              "x": 488,
+              "x": 498,
               "y": 180
             },
             "size": {
@@ -2148,7 +2192,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "report wöchentlich",
+              "name": "report wöchentlich (verschlüsselt)",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2161,7 +2205,7 @@
               "threats": []
             },
             "labels": [
-              "report wöchentlich"
+              "report wöchentlich (verschlüsselt)"
             ],
             "id": "54442d36-680f-4233-9c70-50d6cecb563e",
             "source": {
