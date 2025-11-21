@@ -304,8 +304,8 @@
           },
           {
             "position": {
-              "x": 488,
-              "y": -11.999999999999922
+              "x": 478,
+              "y": -7
             },
             "size": {
               "width": 130,
@@ -445,6 +445,13 @@
                 "elevationOfPrivilege": 0
               },
               "isWebApplication": null
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -844,7 +851,12 @@
             "target": {
               "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 460,
+                "y": 110
+              }
+            ]
           },
           {
             "shape": "flow",
